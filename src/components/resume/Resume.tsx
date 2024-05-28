@@ -4,6 +4,15 @@ import { FaCopy } from "react-icons/fa6";
 import { SnackbarContext, SnackbarProvider } from './Snackbar';
 import constants from "./details";
 
+function SectionHeader({ title }: any) {
+  return (
+    <>
+      <h2 className="text-lg text-golden font-extrabold">{title}</h2>
+      <hr className='mb-2'/>
+    </>
+  );
+}
+
 function Resume() {
   const summary = useMemo(constants.summary, []);
   const snackbar = useContext(SnackbarContext);
@@ -11,7 +20,7 @@ function Resume() {
   return (
     <div className="bg-gray-900 flex flex-col pt-8">
       <section className="flex flex-col items-center justify-center text-center">
-        <h1 className="text-2xl text-golden font-bold mb-2">Hi, I'm {constants.header.name}</h1>
+        <h1 className="text-2xl font-bold mb-2">Hi, I'm {constants.header.name}</h1>
         <h2 className="text-base text-lg mb-2 flex flex-row gap-1">
           {constants.header.email}
           <CopyToClipboard text={constants.header.email}>
@@ -28,12 +37,12 @@ function Resume() {
       <div className="flex items-center justify-center py-8 px-4">
         <div className="w-full rounded-lg bg-gray-800 p-8">
           <section className="mb-8">
-            <h2 className="text-lg text-golden font-extrabold mb-2">Summary</h2>
+            <SectionHeader title="Summary"/>
             <p className="text-base">{summary}</p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-lg text-golden font-extrabold mb-2">Work Experience</h2>
+            <SectionHeader title="Work Experience"/>
             <ul className="flex flex-col gap-2">
               {constants.experiences.map((experience) => (
                 <li key={experience.timeline}>
@@ -53,7 +62,7 @@ function Resume() {
           </section>
 
           <section className="mb-8">
-            <h2 className="text-lg text-golden font-extrabold mb-2">Personal Projects</h2>
+            <SectionHeader title="Personal Projects"/>
             <ul className="flex flex-col gap-2 mb-2">
               {constants.projects.map((project) => (
                 <li key={project.title}>
@@ -69,7 +78,7 @@ function Resume() {
           </section>
 
           <section>
-            <h2 className="text-lg text-golden font-extrabold mb-2">Education</h2>
+            <SectionHeader title="Education"/>
             <h3 className="flex justify-between items-center">
               <span className="text-base font-bold">{constants.education.institution}</span>
               <span className="text-xs">{constants.education.dateGraduated}</span>
