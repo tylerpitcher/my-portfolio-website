@@ -11,7 +11,7 @@ function Snackbar({ message }: any) {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className={`absolute top-2 right-2 ring-1 bg-gray-800 ring-blue-200 p-2 rounded-lg text-xs`}
+      className={`absolute top-2 right-2 ring-1 bg-gray-800 ring-blue-200 p-2 rounded-lg text-sm`}
     >
       <span>{message}</span>
     </motion.div>
