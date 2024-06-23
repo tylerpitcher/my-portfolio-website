@@ -23,11 +23,11 @@ function Laptop() {
   const screenRef: any = useRef();
   const htmlRef: any = useRef();
 
-  const { nodes, materials } = useGLTF('/laptop.glb') as GLTF;
+  const { nodes, materials } = useGLTF("/laptop.glb") as GLTF;
 
   useEffect(() => {
-    if (!open && hovered) document.body.style.cursor = 'pointer';
-    if (open || !hovered) document.body.style.cursor = 'auto';
+    if (!open && hovered) document.body.style.cursor = "pointer";
+    if (open || !hovered) document.body.style.cursor = "auto";
   }, [hovered, open]);
 
   useFrame(() => {
@@ -62,7 +62,7 @@ function Laptop() {
               rotation-y={-Math.PI} 
               position={[0, 0.1, 0.00431573]} 
               scale={0.031} 
-              style={{ backfaceVisibility: 'hidden' }}
+              style={{ backfaceVisibility: "hidden" }}
               transform 
             >
               Click on the computer to begin!
@@ -70,7 +70,7 @@ function Laptop() {
             <mesh ref={screenRef} material={materials?.ComputerScreen} geometry={nodes["Screen_ComputerScreen_0"]?.geometry}>
               <Html 
                 ref={htmlRef}
-                className="content" 
+                className="content overflow-hidden" 
                 rotation-y={-Math.PI} 
                 position={[0, 0.1, 0.00431573]} 
                 scale={0.031} 
@@ -84,7 +84,7 @@ function Laptop() {
             </mesh>
           </group>
           <group rotation={[Math.PI / 2, Math.PI, 0]}>
-            <mesh material={materials?.ComputerFrame} geometry={nodes['Frame_ComputerFrame_0']?.geometry}/>
+            <mesh material={materials?.ComputerFrame} geometry={nodes["Frame_ComputerFrame_0"]?.geometry}/>
           </group>
         </group>
       </Center>

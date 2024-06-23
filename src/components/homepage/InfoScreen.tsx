@@ -8,7 +8,7 @@ function InfoScreen({ onClick }: any) {
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
     >
-      <h1>Please view on a larger screen.</h1>
+      <h1>The full experience requires a larger screen.</h1>
       <button className="pulse" onClick={onClick}>
         <svg fill="#ffffff" height="32px" width="32px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.787 511.787" stroke="#ffffff">
           <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>

@@ -1,15 +1,40 @@
-import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useContext, useMemo } from "react";
 import { FaCopy } from "react-icons/fa6";
-import { SnackbarContext, SnackbarProvider } from './Snackbar';
+import { motion } from "framer-motion";
+import { SnackbarContext, SnackbarProvider } from "./Snackbar";
 import constants from "./details";
 
 function SectionHeader({ title }: any) {
   return (
     <>
       <h2 className="text-lg text-golden font-extrabold">{title}</h2>
-      <hr className='mb-2'/>
+      <hr className="mb-2"/>
     </>
+  );
+}
+
+function SkillIcon({ skill }: any) {
+  if (skill.link) return (
+    <li>
+      <a href={skill.link}>
+        <img 
+          src={`/skills/${skill.name}.svg`} 
+          alt={skill.name} 
+          className="w-full h-full bg-white p-1 object-contain rounded"
+        />
+      </a>
+    </li>
+  );
+
+  return (
+    <li>
+      <img 
+        src={`/skills/${skill.name}.svg`} 
+        alt={skill.name} 
+        className="w-full h-full bg-white p-1 object-contain rounded"
+      />
+    </li>
   );
 }
 
@@ -24,7 +49,7 @@ function Resume() {
         <h2 className="text-base text-lg mb-2 flex flex-row gap-1">
           {constants.header.email}
           <CopyToClipboard text={constants.header.email}>
-            <button className="flex items-center text-xs hover:text-blue-200" onClick={() => snackbar?.open('Email Copied!')}>
+            <button className="flex items-center text-xs hover:text-blue-200" onClick={() => snackbar?.open("Email Copied!")}>
               <FaCopy/>
             </button>
           </CopyToClipboard>
@@ -39,6 +64,26 @@ function Resume() {
           <section className="mb-8">
             <SectionHeader title="Summary"/>
             <p className="text-base">{summary}</p>
+          </section>
+
+          <section className="mb-8">
+            <SectionHeader title="Technical Skills"/>
+            <motion.div 
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 1 }}
+              className="w-full flex flex-wrap flex-row items-center justify-start -mb-1"
+            >
+              {constants.skills.list.map((skill: any, i) => (
+                <motion.ul
+                  key={skill.name}
+                  variants={constants.skills.variant(i*0.25)} 
+                  className="w-2/12 p-1 flex justify-center items-center"
+                >
+                  <SkillIcon skill={skill}/>
+                </motion.ul>
+              ))}
+            </motion.div>
           </section>
 
           <section className="mb-8">

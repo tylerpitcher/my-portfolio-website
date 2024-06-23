@@ -7,7 +7,7 @@ function App() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.matchMedia('(max-width: 640px)').matches) {
+      if (window.matchMedia("(max-width: 640px)").matches) {
         setMobile(true);
       } else {
         setMobile(false);
@@ -15,10 +15,10 @@ function App() {
     };
 
     handleResize();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 

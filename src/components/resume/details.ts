@@ -17,6 +17,40 @@ export default {
       Driven to provide solutions and tackle challenges.
     `;
   },
+  skills: {
+    variant: (delay: number) => ({
+      hidden: { y: 25, opacity: 0, },
+      show: {
+        y: 0,
+        opacity: 1,
+        transition: {
+          type: "spring",
+          duration: 1.25,
+          delay: delay,
+        },
+      },
+    }),
+    list: [
+      { name: "aws", link: "https://www.credly.com/badges/067bcf8e-f419-4dc8-8804-4c855bb9d718/linked_in_profile" },
+      { name: "azure", link: "https://learn.microsoft.com/en-us/users/tylerpitcher-4616/credentials/38a4d27a6b77a1c" },
+      { name: "docker" },
+      { name: "kubernetes" },
+      { name: "helm" },
+      { name: "react" },
+      { name: "angular" },
+      { name: "nextjs" },
+      { name: "redis" },
+      { name: "mongodb" },
+      { name: "spring" },
+      { name: "graphql" },
+      { name: "typescript" },
+      { name: "java" },
+      { name: "python" },
+      { name: "openshift" },
+      { name: "jenkins" },
+      { name: "github" },
+    ],
+  },
   experiences: [
     {
       company: "Intact Insurance",
