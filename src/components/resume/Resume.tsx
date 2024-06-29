@@ -77,8 +77,8 @@ function Resume() {
               {constants.skills.list.map((skill: any, i) => (
                 <motion.ul
                   key={skill.name}
-                  variants={constants.skills.variant(i*0.25)} 
-                  className="w-2/12 p-1 flex justify-center items-center"
+                  variants={constants.skills.variant(i*0.10)} 
+                  className="w-2/12 aspect-square p-1 flex justify-center items-center"
                 >
                   <SkillIcon skill={skill}/>
                 </motion.ul>
