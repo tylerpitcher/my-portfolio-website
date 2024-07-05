@@ -1,8 +1,20 @@
 export default {
+  variant: (x: number = 0, y: number = 0, delay: number = 0) => ({
+    hidden: { x, y, opacity: 0 },
+    show: {
+      x: 0,
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        duration: 1.25,
+        delay,
+      },
+    },
+  }),
   header: {
     name: "Tyler Pitcher",
     email: "tyler.pitcher15@gmail.com",
-    phone: "(905) 995-0106",
     github: "https://github.com/tylerpitcher"
   },
   summary: () => {
@@ -18,18 +30,6 @@ export default {
     `;
   },
   skills: {
-    variant: (delay: number) => ({
-      hidden: { y: 25, opacity: 0, },
-      show: {
-        y: 0,
-        opacity: 1,
-        transition: {
-          type: "spring",
-          duration: 1.25,
-          delay: delay,
-        },
-      },
-    }),
     list: [
       { name: "aws", link: "https://www.credly.com/badges/067bcf8e-f419-4dc8-8804-4c855bb9d718/linked_in_profile" },
       { name: "azure", link: "https://learn.microsoft.com/en-us/users/tylerpitcher-4616/credentials/38a4d27a6b77a1c" },

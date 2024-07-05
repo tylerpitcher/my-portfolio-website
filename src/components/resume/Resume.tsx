@@ -7,10 +7,19 @@ import constants from "./details";
 
 function SectionHeader({ title }: any) {
   return (
-    <>
-      <h2 className="text-lg text-golden font-extrabold">{title}</h2>
+    <motion.div
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 1 }}
+    >
+      <motion.h2 
+        variants={constants.variant(-10)} 
+        className="text-lg text-golden font-extrabold"
+      >
+        {title}
+      </motion.h2>
       <hr className="mb-2"/>
-    </>
+    </motion.div>
   );
 }
 
@@ -77,7 +86,7 @@ function Resume() {
               {constants.skills.list.map((skill: any, i) => (
                 <motion.ul
                   key={skill.name}
-                  variants={constants.skills.variant(i*0.10)} 
+                  variants={constants.variant(0, 25, i*0.10)} 
                   className="w-2/12 aspect-square p-1 flex justify-center items-center"
                 >
                   <SkillIcon skill={skill}/>
